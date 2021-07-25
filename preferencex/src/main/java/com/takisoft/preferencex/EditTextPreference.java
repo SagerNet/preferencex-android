@@ -1,6 +1,7 @@
 package com.takisoft.preferencex;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -109,6 +110,8 @@ public class EditTextPreference extends androidx.preference.EditTextPreference {
 
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+
+                    marginLayoutParams.topMargin = (int) Math.ceil(Resources.getSystem().getDisplayMetrics().density * 16);
                     marginLayoutParams.bottomMargin = 0;
                     msgView.setLayoutParams(marginLayoutParams);
                 }
